@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    fullName: '',
     email: '',
     company: '',
     message: ''
@@ -19,40 +19,42 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
     console.log('Form submitted:', formData);
+    // Reset form
+    setFormData({
+      fullName: '',
+      email: '',
+      company: '',
+      message: ''
+    });
   };
 
   return (
-    <section id="contact-form" className="w-full py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
-      {/* Background Decorative Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#091A2E]/5 rounded-full blur-3xl"></div>
+    <section id="contact-form" className="w-full py-32 bg-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#091A2E] to-blue-600"></div>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Header Section */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#091A2E] to-blue-600 text-white text-sm font-semibold rounded-full uppercase tracking-wider shadow-lg mb-8">
-            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-            </svg>
-            Let's Connect
+          <div className="inline-flex items-center px-4 py-2 bg-[#091A2E]/10 text-[#091A2E] text-sm font-medium rounded-full mb-6 border border-[#091A2E]/20">
+            <span className="w-2 h-2 bg-[#091A2E] rounded-full mr-2"></span>
+            Get In Touch
           </div>
           
-          <h2 className="text-5xl md:text-6xl font-black text-gray-900 leading-tight mb-8">
+          <h2 className="text-5xl md:text-6xl font-black text-[#091A2E] leading-tight mb-8">
             Ready to{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#091A2E] via-blue-600 to-purple-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#091A2E] to-blue-600">
               Transform
             </span>{' '}
             Your Business?
           </h2>
           
           <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-            Let's discuss how Cycls can help you build, deploy, and monetize your AI business. 
-            Our team is here to answer your questions and get you started.
+            Let's discuss how Cycls can help you build, deploy, and monetize your AI agents. 
+            Our team is ready to answer your questions and get you started.
           </p>
         </div>
 
@@ -271,13 +273,13 @@ const ContactForm = () => {
               <p className="text-sm text-gray-500 mb-6">Trusted by leading companies worldwide</p>
               <div className="flex items-center space-x-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
-                  <span className="text-gray-400 font-bold text-xs">LOGO</span>
+                  <span className="text-gray-400 font-bold text-xs">TECH</span>
                 </div>
                 <div className="w-16 h-16 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
-                  <span className="text-gray-400 font-bold text-xs">LOGO</span>
+                  <span className="text-gray-400 font-bold text-xs">INNOVATE</span>
                 </div>
                 <div className="w-16 h-16 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
-                  <span className="text-gray-400 font-bold text-xs">LOGO</span>
+                  <span className="text-gray-400 font-bold text-xs">FUTURE</span>
                 </div>
               </div>
             </div>

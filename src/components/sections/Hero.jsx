@@ -1,7 +1,7 @@
 import React from 'react';
-import ai from '../assets/images/ai2.png';
+import ai from '../../assets/images/cycls-agent.png';
 
-const Hero = () => {
+const Hero = ({ onGetStartedClick }) => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -49,7 +49,10 @@ const Hero = () => {
 
             {/* CTA Section */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-              <button className="bg-white hover:bg-gray-100 text-blue-600 font-bold text-lg px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border-0">
+              <button 
+                onClick={onGetStartedClick}
+                className="bg-white hover:bg-gray-100 text-blue-600 font-bold text-lg px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border-0"
+              >
                 Start Building for Free
               </button>
               <button className="bg-transparent hover:bg-white/10 text-white font-semibold text-lg px-8 py-4 rounded-xl border-2 border-white/50 hover:border-white transition-all duration-300 backdrop-blur-sm">

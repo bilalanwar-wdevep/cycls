@@ -1,8 +1,8 @@
 import React from 'react';
 
-const TheProblem = () => {
+const WhyCycls = ({ onGetStartedClick }) => {
   return (
-    <section id="the-problem" className="w-full py-24 bg-white relative overflow-hidden">
+    <section id="why-cycls" className="w-full py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header - Left Aligned */}
         <div className="mb-20">
@@ -128,7 +128,10 @@ const TheProblem = () => {
           <div className="inline-flex items-center space-x-4 bg-[#091A2E] text-white px-8 py-4 rounded-full shadow-xl relative z-10 overflow-hidden">
             <div className="absolute inset-0 bg-blue-600/20 animate-pulse"></div>
             <span className="text-lg font-semibold relative z-10">Ready to eliminate the friction?</span>
-            <button className="bg-white text-[#091A2E] px-6 py-2 rounded-full font-bold hover:bg-gray-100 transition-colors relative z-10">
+            <button 
+              onClick={onGetStartedClick}
+              className="bg-white text-[#091A2E] px-6 py-2 rounded-full font-bold hover:bg-gray-100 transition-colors relative z-10"
+            >
               Get Started →
             </button>
           </div>
@@ -138,4 +141,4 @@ const TheProblem = () => {
   );
 };
 
-export default TheProblem;
+export default WhyCycls;

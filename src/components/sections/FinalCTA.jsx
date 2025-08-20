@@ -1,8 +1,9 @@
 import React from 'react';
+import Chat from '../interactive/Chat';
 
-const FinalCTA = () => {
+const FinalCTA = ({ isChatOpen, setIsChatOpen, onGetStartedClick }) => {
   return (
-    <section className="w-full py-32 relative overflow-hidden bg-gradient-to-br from-[#091A2E] via-blue-900 to-purple-900">
+    <section id="final-cta" className="w-full py-32 relative overflow-hidden bg-gradient-to-br from-[#091A2E] via-blue-900 to-purple-900">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         {/* Floating Orbs */}
@@ -41,17 +42,20 @@ const FinalCTA = () => {
 
           {/* CTA Button */}
           <div className="pt-8">
-            <button className="group relative inline-flex items-center space-x-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-12 py-6 rounded-3xl font-bold text-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 overflow-hidden">
+            <button 
+              onClick={onGetStartedClick}
+              className="group relative inline-flex items-center space-x-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-12 py-6 rounded-3xl font-bold text-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 overflow-hidden"
+            >
               <span className="relative z-10">Get Started for Free</span>
               <svg className="w-6 h-6 relative z-10 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
               
-              {/* Animated Background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* Animated Background - Fixed positioning */}
+              <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
               
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-3xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
+              {/* Glow Effect - Fixed positioning */}
+              <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-3xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
             </button>
           </div>
 
@@ -83,17 +87,23 @@ const FinalCTA = () => {
       </div>
 
       {/* Floating Action Elements */}
-      <div className="absolute bottom-10 left-10 w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center shadow-2xl animate-bounce">
-        <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <button
+        onClick={() => setIsChatOpen(true)}
+        className="absolute bottom-10 right-10 w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center shadow-2xl animate-bounce hover:scale-110 transition-transform duration-300 cursor-pointer group"
+      >
+        <svg className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
         </svg>
-      </div>
+      </button>
       
       <div className="absolute top-20 right-20 w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center shadow-2xl animate-pulse">
         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       </div>
+
+      {/* Chat Component */}
+      <Chat isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </section>
   );
 };
